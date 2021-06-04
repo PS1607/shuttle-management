@@ -164,7 +164,7 @@ table.blueTable tfoot .links a{
       <a href="about.html">About</a>
       <a href="feedback.php">Feedback</a>
 	  <a href="mailto:prakharsharma1607@gmail.com">Contact Us</a>
-	  <a href="index.php">Logout</a>
+	  <a href="logout.php">Logout</a>
 </div>
 
 

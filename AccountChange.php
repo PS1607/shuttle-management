@@ -1,9 +1,9 @@
+<?php
+  require_once('Connection/DB_Connection_Details.php');
+?>
 <?php session_start();
 $userid=$_SESSION["logged_user"];
 ?>
-
-<?php  require_once('Connection/DB_Connection_Details.php'); ?>
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -117,7 +117,7 @@ body {
       <a href="about.html">About</a>
       <a href="feedback.php">Feedback</a>
 	  <a href="mailto:prakharsharma1607@gmail.com">Contact Us</a>
-	  <a href="index.php">Logout</a>
+	  <a href="logout.php">Logout</a>
     </div>
 
 <!--end of navbar -->  
@@ -176,7 +176,8 @@ else{ $result= $conn->query ("SELECT * FROM customer1 where cid = '$t'");
 		<form action="upload.php" method="post" enctype="multipart/form-data">
 		  <p align="left"><h4>Change Profile Picture:</h4>
 		  <input type="file" name="fileToUpload" id="fileToUpload">
-		  <input type="submit" value="Upload Image" name="submit">
+		  <input type="submit" value="Upload Image" name="submit"><br>
+      Maximum Upload Size is 5MB
 		  </p>
 	  	</form>  
 	  </tr>
@@ -269,6 +270,13 @@ unset ($_POST['delete']);
 if (isset($_POST['modify']))
 {
   //session_start();
+  $_SESSION['logged_user'];
+  $server="sg2nlmysql1plsk.secureserver.net";
+$username="prakhar";
+$password="G6q79!6UbvF*p7T_";
+$db="safar";
+
+$conn = new mysqli($server,$username,$password,$db);
 if($conn->connect_error){
     die("Connection failed".mysqli_connect_error());
 }

@@ -1,4 +1,16 @@
 <?php session_start(); ?>
+<?php   
+  $t= $_SESSION['logged_user'];
+  if($t!=0){
+
+  }
+  else{
+    header("Location: index.php");
+    die();
+
+  }
+?>
+<?php require_once('Connection/DB_Connection_Way2.php'); ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -458,7 +470,20 @@ body {
 <br>
 <div align="center">
 	 <button onclick="location.href='user.php'" type="button" class="btn btn-primary" value="back">Back</button>
+</div><br><br>
+<div align="center">
+  <form id="feedback" action="#" method="POST" style="width: 40%; margin-left: auto; margin-right: auto;">
+        <label for="usrname">Name: </label>
+        <input type="text" name="usrname">
+        <button name="add" type="submit" value="add" class="btn btn-primary">Submit</button>
+</form>
+<br>
+<textarea rows="4" cols="50" name="comment" form="feedback">
+Enter text here...</textarea>
+
 </div>
+
+
 <div class="feedback-wrapper at-bottom">
   <div class="feedback-title">
     <h1 class="text-center">How would you rate this software?
@@ -822,3 +847,37 @@ initFB();
 </script>
 </body>
 </html>
+
+<?php
+if(isset($_POST['add']))
+{
+
+  $name= $_POST['usrname'];
+  $t = $_SESSION['logged_user'];
+  $feedback = $_POST['comment'];
+  $now=date('H:i:s');
+  if($t!=0){
+    $sql_url1 = "INSERT INTO feedback (cid, name, feedback)
+              VALUES ('$t', '$name', '$feedback');"; 
+    if ($conn->query($sql_url1) === TRUE) {
+    echo '<script type="text/javascript">
+          alert("Feedback Submitted")
+          window.location="user.php";
+          </script>'; 
+    } 
+    else {
+        echo "Error: " . $sql_url1 . "<br>" . $conn->error;
+    }
+  }
+
+}
+
+
+
+
+?>
+
+
+
+
+

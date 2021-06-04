@@ -1,8 +1,7 @@
 <?php  require_once('Connection/DB_Connection_Details.php'); ?>
 <?php session_start(); ?>
 <?php   
-  $t= $_SESSION['logged_user'];
-  if($t!=0){
+  if($_SESSION['logged_admin']!=0){
 
   }
   else{
@@ -29,18 +28,18 @@
 <style>
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
 body {
-  background-image: url("background.jpg");
+  background-image: url("background_1.jpg");
     background-size: 100%;
-	background-repeat: no-repeat;
+  background-repeat: no-repeat;
 }
 .detail
 {
-	height:500px;
+  height:500px;
 }
 
 #pholder {
-	max-height: 100px;
-	max-width: 100px;
+  max-height: 100px;
+  max-width: 100px;
 }
 
 .center {
@@ -51,7 +50,7 @@ body {
 }
 
 .wrapper {
-	text-align: center;
+  text-align: center;
 }
 
 #info {
@@ -68,16 +67,16 @@ body {
 <!--Fixing Bootstrap-->
 <style>
 .panel-info>.panel-heading {
-	color: #006b6b;
-	background-color: #91c7c7;
-	border-color: #009ab9;   
+  color: #006b6b;
+  background-color: #91c7c7;
+  border-color: #009ab9;   
 }
 .panel-success>.panel-heading {
     color: #270084;
-	background-color: #9788bb;
-	border-color: #4a00ff;
+  background-color: #9788bb;
+  border-color: #4a00ff;
 }
-</style>	
+</style>  
 <style>
 .navbar {
   overflow: hidden;
@@ -101,7 +100,7 @@ body {
 .navbar a:hover {
   background: #ddd;
   color: black;
-}		
+}   
 </style>
 </head>
 <body>
@@ -111,14 +110,13 @@ body {
       
       <a href="about.html">About</a>
       <a href="feedback.php">Feedback</a>
-      <a href="mailto:prakharsharma1607@gmail.com">Contact Us</a>
-      <a href="logout.php">Logout</a>
+    <a href="mailto:prakharsharma1607@gmail.com">Contact Us</a>
+    <a href="logout.php">Logout</a>
     </div>
-
 
 <!--end of navbar -->
 <!--generic info-->
-<br><br><br><br>	
+<br><br><br><br>  
 <div class= "container-fluid">
  <div class= "col-md-4" >
   <div class= "panel panel-info" id="info" >
@@ -127,13 +125,13 @@ body {
       </div> 
 
 <?php 
-//$_SESSION['logged_user']=1;
+//$_SESSION['logged_admin']=1;
 //session_start();
 //$server="sg2nlmysql1plsk.secureserver.net";
 //$username="prakhar";
 //$password="G6q79!6UbvF*p7T_";
 //$db="safar";
-$t= $_SESSION['logged_user'];
+$t= $_SESSION['logged_admin'];
 //$conn = new mysqli($server,$username,$password,$db);
 if($conn->connect_error){
     die("Connection failed".mysqli_connect_error());
@@ -154,10 +152,10 @@ if($conn->connect_error){
   $e = $row['email'];
   $g = $row['amount'];
   if(file_exists("uploads/".$n.".jpg")){
-	    $jpg = "uploads/".$n.".jpg";
+      $jpg = "uploads/".$n.".jpg";
   }
   else{
-	    $jpg = "images/placeholder.png";
+      $jpg = "images/placeholder.png";
   }
 
 //mysqli_close($conn);
@@ -168,27 +166,19 @@ if($conn->connect_error){
       <br>
       <br>
       <table class = "table">
-	  <tr>
+    <tr>
          <td align="center">Name: <?php echo "$f"; ?></td>
       </tr>
-		  
-      <tr>
-         <td align="center">Registration No: <?php echo "$n"; ?></td>
-      </tr>
-      
+
       <tr>
          <td align="center">E-mail: <?php echo "$e"; ?></td>
       </tr>
             <tr>
-         <td align="center">Credit Balance: <?php echo "$g";?></td>
+         <td align="center">Admin</td>
       </tr>
    </table>
    <br>
    <br>
-   <div class= "wrapper">
-   <button onclick="location.href='booking.php'" type="button" class="btn btn-success" value="book">
-     Book Shuttle</button>
-   </div>
       </div>
     </div>
 </div>
@@ -197,14 +187,16 @@ if($conn->connect_error){
 <div class="col-md-8">
   <div class="panel panel-success">
     <div class="panel-heading" align="center">
-		<h4 class= "panel-title" align="center"> Dashboard </h4>  
-	</div>
+    <h4 class= "panel-title" align="center"> Dashboard </h4>  
+  </div>
     <div class="panel-body log">
-		<ul>
-			<li><a href="AccountChange.php"><h5 style="color:black;">Modify Account</h5></a></li>
-			<li><a href="payment1.php"><h5 style="color:black;">Add Amount</h5></a></li>
-			<li><a href="first_page.php"><h5 style="color:black;">Booking History</h5></a></li>
-      	</ul>
+      <ul>
+        <li><a href=""><h5 style="color:black;">Add/Remove Shuttles</h5></a></li>
+        <li><a href=""><h5 style="color:black;">Change Shuttle Schedule</h5></a></li>
+        <li><a href=""><h5 style="color:black;">Change Shuttle Routes</h5></a></li>
+        <li><a href="current_shuttles.php"><h5 style="color:black;">Current Running Shuttles</h5></a></li>
+        <li><a href="earnings.php"><h5 style="color:black;">Earnings</h5></a></li>
+      </ul>
     </div>
   </div>
 </div>
@@ -212,4 +204,7 @@ if($conn->connect_error){
 
 </body>
 </html>
+
+
+
 

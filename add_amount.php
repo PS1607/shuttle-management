@@ -412,56 +412,17 @@ function cardyear() {
 <?php
   $id = $_GET['pid'];
   $t= $_SESSION['logged_user'];
-  $sql_url = "SELECT * FROM combine where id='$id'";
-  $result_url = mysqli_query($conn, $sql_url);
-  $totalRows_url = mysqli_num_rows($result_url);
-  $row_url = mysqli_fetch_assoc($result_url);
 
-  $id = $row_url["id"];
-  $shutid = $row_url["shut_id"];
-  $arrival = $row_url["arrival"];
-  $departure = $row_url["departure"];
-  $s = $row_url["Source"];
-  $d = $row_url["Destination"];
-
-  //echo $t."/".$id."/".$shutid."/".$arrival."/".$departure."/".$s."/".$d."/";
-
-  //echo $id."<br>";
-  //echo $shutid."<br>";
-  //echo $arrival."<br>";
-  //echo $departure."<br>";
-  //echo $s."<br>";
-
-  /*echo "<table id=\"list\" style=\"width: 80%; margin-left: auto; margin-right: auto;\">
-    <caption>Available Shuttles</caption>
-
-  <tr>
-    <th>Shuttle ID</th>
-    <th>Source</th>
-    <th>Destination</th>
-    <th>Arrival</th>
-    <th>Departure</th>
-  </tr>";
-
-  echo "<tr>";
-          echo "<td>".$shutid."</td>";
-          echo "<td>".$s."</td>";
-          echo "<td>".$d."</td>";
-          echo "<td>".$arrival."</td>";
-          echo "<td>".$departure."</td>";
-        echo "</tr>";
-  echo "</table>";*/
 
 
 if(isset($_POST['submit'])){
 
   $now=date('H:i:s');
   if($t!=0){
-    $sql_url1 = "INSERT INTO booking_details (cid, shut_id, source, destination, fare, ride_time, pid)
-              VALUES ('$t', '$shutid', '$s', '$d', '15', '$arrival', '$id');"; 
+    $sql_url1 = "UPDATE customer1 SET amount='30' WHERE cid='$t'"; 
     if ($conn->query($sql_url1) === TRUE) {
     echo '<script type="text/javascript">
-          alert("Seat Booked")
+          alert("Amount Added")
           window.location="user.php";
           </script>'; 
     } 

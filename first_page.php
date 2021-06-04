@@ -91,6 +91,28 @@ body {
     font-family: 'Verdana', sans-serif;
     padding: 20px;
 }
+
+.myButton { 
+            background-color:#fe1a00;
+            border-radius:4px;
+            border:2px solid #d83526;
+            display:inline-block;
+            cursor:pointer;
+            color:#ffffff;
+            font-family:Arial;
+            font-size:16px;
+            font-weight:bold;
+            padding:6px 12px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #b23e35;
+        }
+        .myButton:hover {
+            background-color:#ce0100;
+        }
+        .myButton:active {
+            position:relative;
+            top:1px;
+        }
 </style>
 </head>
 <body>
@@ -101,7 +123,7 @@ body {
       <a href="about.html">About</a>
       <a href="feedback.php">Feedback</a>
     <a href="mailto:prakharsharma1607@gmail.com">Contact Us</a>
-    <a href="index.php">Logout</a>
+    <a href="logout.php">Logout</a>
     </div>
 
 <!--end of navbar -->
@@ -192,6 +214,7 @@ $t= $_SESSION['logged_user'];
         <th>Destination</th>
         <th>Fare</th>
         <th>Date and Time</th>
+        <th></th>
         
       </tr>
     </thead>
@@ -221,6 +244,11 @@ $t= $_SESSION['logged_user'];
         <td><?php echo "$ds"; ?></td>
         <td><?php echo "$fr"; ?></td>
         <td><?php echo "$ti"; ?></td>
+        <td><?php 
+              
+                echo "<a class=\"myButton\" href='".$page."?pid=".$row_url['id']."'>Cancel</a>"; 
+
+              ?></td>
       </tr>
 <?php } ?>   
     </tbody>

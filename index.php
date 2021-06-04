@@ -1,4 +1,4 @@
-<?php  require_once('Connection/DB_Connection_Details.php'); ?>
+<?php require_once('Connection/DB_Connection_Details.php'); ?>
 <?php session_start(); ?>
 <html>
 <head>
@@ -414,6 +414,11 @@ $n= $_POST['reg_no'];
 $e= $_POST['email'];
 $l= $_POST['password'];
 
+//$server="sg2nlmysql1plsk.secureserver.net";
+//$username="prakhar";
+//$password="G6q79!6UbvF*p7T_";
+//$db="safar";
+//$conn = new mysqli($server,$username,$password,$db);
 	
 $sql= "select * from customer1 where registration_no='$n'";
 $result=mysqli_query($conn, $sql);
@@ -442,11 +447,11 @@ else
 
 if (isset($_POST['login']))
 {
-$server="sg2nlmysql1plsk.secureserver.net";
-$username="prakhar";
-$password="G6q79!6UbvF*p7T_";
-$db="safar";
-$conn = new mysqli($server,$username,$password,$db);
+//$server="sg2nlmysql1plsk.secureserver.net";
+//$username="prakhar";
+//$password="G6q79!6UbvF*p7T_";
+//$db="safar";
+//$conn = new mysqli($server,$username,$password,$db);
 if($conn->connect_error){
     die("Connection failed".mysqli_connect_error());
 }
@@ -460,10 +465,19 @@ else {
 	
   if (mysqli_num_rows($result)>0)
     {
-       $_SESSION['logged_user']= $row['cid'];
-       echo '<script type="text/javascript">
-		window.location="user.php";
-      </script>';
+      if ($row['type'] == "user"){
+         $_SESSION['logged_user']= $row['cid'];
+         echo '<script type="text/javascript">
+  		        window.location="user.php";
+              </script>';
+      }
+
+      if ($row['type'] == "admin"){
+         $_SESSION['logged_admin']= $row['cid'];
+         echo '<script type="text/javascript">
+              window.location="admin.php";
+              </script>';
+      }
     } 
 
   else 

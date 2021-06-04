@@ -9,11 +9,9 @@
 <?php
 session_start();
 $n = $_SESSION['reg_no'];
-echo $n;
 	
 $target_dir = "uploads/";
 $target_file = $target_dir . $n.".jpg";
-	echo "File Location: ".$target_file."<br>";
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
@@ -37,7 +35,7 @@ if (file_exists($target_file)) {
 
 // Check file size
 if ($_FILES["fileToUpload"]["size"] > 5000000) {
-  echo "Sorry, your file is too large.";
+  echo "Sorry, maximum file size allowed is 5MB.";
   $uploadOk = 0;
 }
 
