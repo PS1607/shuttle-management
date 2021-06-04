@@ -1,4 +1,5 @@
 There are 2 ways to access/run the project:
+
 A. Accessing the live website on GoDaddy server:
   - Go to https://shuttle.wthworld.org/
   - Make a new user account with valid details, or use the existing dummy account credentials:
