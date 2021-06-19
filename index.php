@@ -414,11 +414,7 @@ $n= $_POST['reg_no'];
 $e= $_POST['email'];
 $l= $_POST['password'];
 
-//$server="sg2nlmysql1plsk.secureserver.net";
-//$username="prakhar";
-//$password="G6q79!6UbvF*p7T_";
-//$db="safar";
-//$conn = new mysqli($server,$username,$password,$db);
+
 	
 $sql= "select * from customer1 where registration_no='$n'";
 $result=mysqli_query($conn, $sql);
@@ -447,11 +443,7 @@ else
 
 if (isset($_POST['login']))
 {
-//$server="sg2nlmysql1plsk.secureserver.net";
-//$username="prakhar";
-//$password="G6q79!6UbvF*p7T_";
-//$db="safar";
-//$conn = new mysqli($server,$username,$password,$db);
+
 if($conn->connect_error){
     die("Connection failed".mysqli_connect_error());
 }
