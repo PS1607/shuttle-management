@@ -1,6 +1,4 @@
-<?php
-  require_once('Connection/DB_Connection_Details.php');
-?>
+<?php require_once('Connection/DB_Connection_Details.php');?>
 <?php session_start();
 $userid=$_SESSION["logged_user"];
 ?>
@@ -133,12 +131,7 @@ body {
 <?php 
 //$_SESSION['logged_user']=1;
 //session_start();
-$server="sg2nlmysql1plsk.secureserver.net";
-$username="prakhar";
-$password="G6q79!6UbvF*p7T_";
-$db="safar";
-$t= $_SESSION['logged_user'];
-$conn = new mysqli($server,$username,$password,$db);
+
 if($conn->connect_error){
     die("Connection failed".mysqli_connect_error());
 }
@@ -212,11 +205,6 @@ if(isset($_POST['delete']))
 {
   //session_start();
 $t= $_SESSION['logged_user'];
-$server="sg2nlmysql1plsk.secureserver.net";
-$username="prakhar";
-$password="G6q79!6UbvF*p7T_";
-$db="safar";
-$conn =  mysqli_connect($server,$username,$password,$db);
 if(!($conn)){
     die("Connection failed".mysqli_connect_error());
 }
@@ -270,13 +258,8 @@ unset ($_POST['delete']);
 if (isset($_POST['modify']))
 {
   //session_start();
-  $_SESSION['logged_user'];
-  $server="sg2nlmysql1plsk.secureserver.net";
-$username="prakhar";
-$password="G6q79!6UbvF*p7T_";
-$db="safar";
+  
 
-$conn = new mysqli($server,$username,$password,$db);
 if($conn->connect_error){
     die("Connection failed".mysqli_connect_error());
 }
