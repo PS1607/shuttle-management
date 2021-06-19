@@ -127,14 +127,8 @@ body {
       </div> 
 
 <?php 
-//$_SESSION['logged_user']=1;
-//session_start();
-//$server="sg2nlmysql1plsk.secureserver.net";
-//$username="prakhar";
-//$password="G6q79!6UbvF*p7T_";
-//$db="safar";
+
 $t= $_SESSION['logged_user'];
-//$conn = new mysqli($server,$username,$password,$db);
 if($conn->connect_error){
     die("Connection failed".mysqli_connect_error());
 }
@@ -142,13 +136,7 @@ if($conn->connect_error){
   $row = $result->fetch_assoc();
   $result1= $conn->query ("SELECT * FROM ride_details where cid = '$t' ORDER BY rid DESC LIMIT 1");
   $row1 = $result1->fetch_assoc();
-  //echo mysqli_num_rows($result1);
-  /*if (mysqli_num_rows($result)>0)
-  {
-    $count= mysqli_num_rows($result);
-  }
- while($row = $res1->fetch_assoc()) 
-{*/
+
   $f = $row['name'];
   $n = $row['registration_no'];
   $e = $row['email'];
@@ -160,7 +148,6 @@ if($conn->connect_error){
 	    $jpg = "images/placeholder.png";
   }
 
-//mysqli_close($conn);
 
 ?>
 <div class= "panel panel-body detail">
