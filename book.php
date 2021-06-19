@@ -1,4 +1,6 @@
 <?php session_start(); ?>
+<?php  require_once('Connection/DB_Connection_Details.php'); ?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -125,13 +127,7 @@ body {
         <h4 class= "panel-title" align="center"> Your Information </h4>
       </div> 
 <?php 
-//$_SESSION['logged_user']=1;
-$server="sg2nlmysql1plsk.secureserver.net";
-$username="prakhar";
-$password="G6q79!6UbvF*p7T_";
-$db="safar";
-$t= $_SESSION['logged_user'];
-$conn = new mysqli($server,$username,$password,$db);
+
 if($conn->connect_error){
     die("Connection failed".mysqli_connect_error());
 }
