@@ -125,12 +125,7 @@ body {
       </div> 
 
 <?php 
-//$_SESSION['logged_admin']=1;
-//session_start();
-//$server="sg2nlmysql1plsk.secureserver.net";
-//$username="prakhar";
-//$password="G6q79!6UbvF*p7T_";
-//$db="safar";
+
 $t= $_SESSION['logged_admin'];
 //$conn = new mysqli($server,$username,$password,$db);
 if($conn->connect_error){
