@@ -386,11 +386,7 @@ $s= $_POST['source'];
 $d= $_POST['destination'];
 $m= $_POST['mini'];
 $p= $_POST['credit'];
-$server="sg2nlmysql1plsk.secureserver.net";
-$username="prakhar";
-$password="G6q79!6UbvF*p7T_";
-$db="safar";
-$conn = new mysqli($server,$username,$password,$db);
+
 if($conn->connect_error){
     die("Connection failed".mysqli_connect_error());
 }
