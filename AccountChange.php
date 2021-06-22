@@ -271,7 +271,7 @@ else {
   //$result1=mysqli_query($conn,$sql1);
   //$row1 = mysqli_fetch_assoc($result1);
   $result1= $conn->query ("update customer1 set name='$e', password='$l', email='$u' where cid='$t'");
-  $row1 = $result->fetch_assoc();
+  $row1 = $result1->fetch_assoc();
   // if (mysqli_num_rows($result1)>0)
   //   {
   //      $_SESSION['logged_user']= $row1['cid'];
